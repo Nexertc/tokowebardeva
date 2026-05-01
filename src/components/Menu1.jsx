@@ -11,26 +11,43 @@ export default function Menu1({
     
 
   return (
+    
     <div className="menu">
-      {menuList.map((item) =>
-        cocok(item.nama) ? (
-          <div
-            key={item.id}
-            className={`item ${item.state.selected ? "selected" : ""}`}
-            onClick={() => toggleItem(item.set, item.state)}
-          >
-            <img src={item.img} alt="" />
-            <p>{item.nama}</p>
-            <small>{formatRupiah(item.harga)}</small>
+      
+    {menuList.map((item) =>
+  cocok(item.nama) ? (
+    <article
+      key={item.id}
+      className={`item ${item.state.selected ? "selected" : ""}`}
+      onClick={() => toggleItem(item.set, item.state)}
+    >
+      <figure>
+        <img src={item.img} alt={item.nama} />
+      </figure>
 
-            <div className="jumlah" onClick={(e) => e.stopPropagation()}>
-              <button onClick={() => ubahJumlah(item.set, item.state, -1)}>−</button>
-              <input value={item.state.qty} readOnly />
-              <button onClick={() => ubahJumlah(item.set, item.state, 1)}>＋</button>
-            </div>
-          </div>
-        ) : null
-      )}
+      <header>
+        <h3>{item.nama}</h3>
+      </header>
+
+      <p>{formatRupiah(item.harga)}</p>
+
+      <footer
+        className="jumlah"
+        onClick={(e) => e.stopPropagation()}
+      >
+        <button onClick={() => ubahJumlah(item.set, item.state, -1)}>
+          −
+        </button>
+
+        <input value={item.state.qty} readOnly />
+
+        <button onClick={() => ubahJumlah(item.set, item.state, 1)}>
+          ＋
+        </button>
+      </footer>
+    </article>
+  ) : null
+)}
     </div>
   );
 }

@@ -1,9 +1,6 @@
 import { useState } from "react";
 import "./App.css";
-import foto1 from "./img/5.jpeg";
-import foto2 from "./img/5.jpeg";
-import foto3 from "./img/5.jpeg";
-import foto4 from "./img/5.jpeg";
+import cookis from "./img/cookis.png";
 import Header from "./components/Header";
 import Menu1 from "./components/Menu1";
 
@@ -20,10 +17,15 @@ export default function App() {
   const [search, setSearch] = useState("");
 
   const menuList = [
-  { id: "kopi", nama: "Kopi Hitam", harga: 12000, img: foto1, state: kopi, set: setKopi },
-  { id: "cap", nama: "Cappuccino", harga: 18000, img: foto2, state: cap, set: setCap },
-  { id: "latte", nama: "Latte", harga: 20000, img: foto3, state: latte, set: setLatte },
-  { id: "eskopi", nama: "Es Kopi Susu", harga: 15000, img: foto4, state: eskopi, set: setEskopi },
+  { id: "kopi", nama: "Kopi Hitam", harga: 12000, img: cookis, state: kopi, set: setKopi },
+  { id: "cap", nama: "Cappuccino", harga: 18000, img: cookis, state: cap, set: setCap },
+  { id: "latte", nama: "Latte", harga: 20000, img: cookis, state: latte, set: setLatte },
+  { id: "eskopi", nama: "Es Kopi Susu", harga: 15000, img: cookis, state: eskopi, set: setEskopi },
+
+  { id: "kopi", nama: "Kopi Hitam", harga: 12000, img: cookis, state: kopi, set: setKopi },
+  { id: "cap", nama: "Cappuccino", harga: 18000, img: cookis, state: cap, set: setCap },
+  { id: "latte", nama: "Latte", harga: 20000, img: cookis, state: latte, set: setLatte },
+  { id: "eskopi", nama: "Es Kopi Susu", harga: 15000, img: cookis, state: eskopi, set: setEskopi },
 ];
 
   // ================= FUNCTION =================
@@ -95,14 +97,7 @@ export default function App() {
   return (
     <div className="konten">
       <Header totalQty={totalQty} showPopup={showPopup} />
-      <br />
-      {/* SEARCH */}
-      <input
-        type="text"
-        placeholder="Cari menu..."
-        onChange={(e) => setSearch(e.target.value)}
-      />
-
+    
      <Menu1
   menuList={menuList}
   cocok={cocok}
@@ -111,25 +106,33 @@ export default function App() {
   formatRupiah={formatRupiah}
 />
 
-      {popup && (
-        <div className="popup">
-          <div className="popupContent">
-            <h2>Pesanan Anda</h2>
+    {popup && (
+  <dialog className="popup" open>
+    <article className="popupContent">
+      
+      <header>
+        <h2>Pesanan Anda</h2>
+      </header>
 
-            <pre>
-              {`☕ Pesanan:\n` +
-                (kopi.selected ? `- Kopi Hitam x${kopi.qty}\n` : "") +
-                (cap.selected ? `- Cappuccino x${cap.qty}\n` : "") +
-                (latte.selected ? `- Latte x${latte.qty}\n` : "") +
-                (eskopi.selected ? `- Es Kopi Susu x${eskopi.qty}\n` : "") +
-                `\nTotal: ${formatRupiah(totalHarga)}`}
-            </pre>
+      <section>
+        <pre>
+          {`☕ Pesanan:\n` +
+            (kopi.selected ? `- Kopi Hitam x${kopi.qty}\n` : "") +
+            (cap.selected ? `- Cappuccino x${cap.qty}\n` : "") +
+            (latte.selected ? `- Latte x${latte.qty}\n` : "") +
+            (eskopi.selected ? `- Es Kopi Susu x${eskopi.qty}\n` : "") +
+            `\nTotal: ${formatRupiah(totalHarga)}`}
+        </pre>
+      </section>
 
-            <button onClick={kirimWA}>Kirim WA</button>
-            <button onClick={hidePopup}>Tutup</button>
-          </div>
-        </div>
-      )}
+     
+        <button onClick={kirimWA}>Kirim WA</button>
+        <button onClick={hidePopup}>Tutup</button>
+   
+
+    </article>
+  </dialog>
+)}
     </div>
   );
 }
