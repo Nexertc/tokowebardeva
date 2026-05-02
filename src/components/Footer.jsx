@@ -25,7 +25,7 @@ export default function Footer() {
         <div className="footer-contact">
           <h3>Kontak</h3>
           <p>📍 Indonesia</p>
-          <p>📞 0812-3456-7890</p>
+          <p>📞 896-0869-1635</p>
           <p>✉️ resinopalia@gmail.com</p>
         </div>
 

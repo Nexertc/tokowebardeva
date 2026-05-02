@@ -22,7 +22,7 @@ export default function App() {
   const menuList = [
     {
       id: "choco",
-      nama: "Chocolate Cookies",
+      nama: "🟢Chocolate Cookies",
       harga: 12000,
       img: cookis,
       state: choco,
@@ -30,7 +30,7 @@ export default function App() {
     },
     {
       id: "vanilla",
-      nama: "Vanilla Cookies",
+      nama: "🟢Vanilla Cookies",
       harga: 18000,
       img: cookis,
       state: vanilla,
@@ -38,7 +38,7 @@ export default function App() {
     },
     {
       id: "redvelvet",
-      nama: "Red Velvet Cookies",
+      nama: "🟡Red Velvet Cookies",
       harga: 20000,
       img: cookis,
       state: redvelvet,
@@ -46,7 +46,7 @@ export default function App() {
     },
     {
       id: "matcha",
-      nama: "Matcha Cookies",
+      nama: "🟡Matcha Cookies",
       harga: 15000,
       img: cookis,
       state: matcha,
@@ -55,7 +55,7 @@ export default function App() {
 
     {
       id: "oreo",
-      nama: "Oreo Cookies",
+      nama: "🟢Oreo Cookies",
       harga: 12000,
       img: cookis,
       state: oreo,
@@ -63,7 +63,7 @@ export default function App() {
     },
     {
       id: "strawberry",
-      nama: "Strawberry Cookies",
+      nama: "🟠Strawberry Cookies",
       harga: 18000,
       img: cookis,
       state: strawberry,
@@ -71,7 +71,7 @@ export default function App() {
     },
     {
       id: "cheese",
-      nama: "Cheese Cookies",
+      nama: "🟠Cheese Cookies",
       harga: 20000,
       img: cookis,
       state: cheese,
@@ -79,7 +79,7 @@ export default function App() {
     },
     {
       id: "caramel",
-      nama: "Caramel Cookies",
+      nama: "🟡Caramel Cookies",
       harga: 15000,
       img: cookis,
       state: caramel,
@@ -182,27 +182,17 @@ export default function App() {
     <div className="konten">
       <Header totalQty={totalQty} showPopup={showPopup} />
 
-      <article className="artc2">
-        <img className="cookies2" src={cookies2} alt="cookies2" />
-        <section>
-          <h2 className="artcH22">Pengertian</h2>
-          <p className="artcP2">
-            {" "}
-            Biskuit cookies adalah jenis kue kering renyah hasil panggangan yang
-            terbuat dari adonan lunak, umumnya berukuran kecil, manis, dan
-            tinggi lemak. Berdasarkan, cookies sering dikategorikan sebagai
-            jenis biskuit, namun memiliki tekstur yang lebih lunak saat mentah
-            dan lebih renyah/rapuh saat matang.{" "}
-          </p>
-        </section>
-        <img className="cookies3" src={cookies2} alt="cookies3" />
-      </article>
+     
+      <div className="headmenu">
+         <h4 className="h4pesan" id="menu">
+        <img src={cookies2} alt="cookis" width="10%" /> Pesan sekarang
+      </h4>
 
-      <hr className="hr1" />
+     <h4 className="h4pesan2">🟢 sangat Enak</h4> 
+     <h4 className="h4pesan2">🟡 Cukup Enak</h4>  
+     <h4 className="h4pesan2">🟠 Enak</h4>
 
-      <h3 className="h3menu" id="menu">
-        Produk
-      </h3>
+      </div>
 
       <Menu1
         menuList={menuList}
@@ -246,14 +236,35 @@ export default function App() {
               </pre>
             </section>
 
-            <button onClick={kirimWA}>Kirim WA</button>
-            <button onClick={hidePopup}>Tutup</button>
+            <button className="btnpopup" onClick={kirimWA}>
+              Kirim WA
+            </button>
+            <button className="btnpopup" onClick={hidePopup}>
+              Tutup
+            </button>
           </article>
         </dialog>
       )}
 
-      <Footer />
+           <hr className="hr1" />
 
+ <article className="artc2">
+        <img className="cookies2" src={cookies2} alt="cookies2" />
+        <section>
+          <h2 className="artcH22">Pengertian</h2>
+          <p className="artcP2">
+            {" "}
+            Biskuit cookies adalah jenis kue kering renyah hasil panggangan yang
+            terbuat dari adonan lunak, umumnya berukuran kecil, manis, dan
+            tinggi lemak. Berdasarkan, cookies sering dikategorikan sebagai
+            jenis biskuit, namun memiliki tekstur yang lebih lunak saat mentah
+            dan lebih renyah/rapuh saat matang.{" "}
+          </p>
+        </section>
+        <img className="cookies3" src={cookies2} alt="cookies3" />
+      </article>
+
+      <Footer />
     </div>
   );
 }

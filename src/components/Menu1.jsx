@@ -1,4 +1,5 @@
 import "../App.css";
+import cookies from "../img/cookis.png";
 
 export default function Menu1({
   menuList,
@@ -49,6 +50,7 @@ export default function Menu1({
     </article>
   ) : null
 )}
+ <img src={cookies} alt="cookies" className="imgmenu1" />
     </div>
   );
 }
