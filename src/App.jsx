@@ -1,31 +1,35 @@
 import { useState } from "react";
 import "./App.css";
-import cookis from "./img/cookis.png";
+import cookis from "./img/produkc4.jpg";
+import cookies2 from "./img/cookis.png";
 import Header from "./components/Header";
 import Menu1 from "./components/Menu1";
 
 export default function App() {
 
   
-
   // ================= STATE =================
-  const [kopi, setKopi] = useState({ qty: 1, selected: false });
-  const [cap, setCap] = useState({ qty: 1, selected: false });
-  const [latte, setLatte] = useState({ qty: 1, selected: false });
-  const [eskopi, setEskopi] = useState({ qty: 1, selected: false });
+  const [choco, setChoco] = useState({ qty: 1, selected: false });
+  const [vanilla, setVanilla] = useState({ qty: 1, selected: false });
+  const [redvelvet, setRedvelvet] = useState({ qty: 1, selected: false });
+  const [matcha, setMatcha] = useState({ qty: 1, selected: false });
+
+  const [oreo, setOreo] = useState({ qty: 1, selected: false });
+  const [strawberry, setStrawberry] = useState({ qty: 1, selected: false });
+  const [cheese, setCheese] = useState({ qty: 1, selected: false });
+  const [caramel, setCaramel] = useState({ qty: 1, selected: false });
 
   const [search, setSearch] = useState("");
+const menuList = [
+  { id: "choco", nama: "Chocolate Cookies", harga: 12000, img: cookis, state: choco, set: setChoco },
+  { id: "vanilla", nama: "Vanilla Cookies", harga: 18000, img: cookis, state: vanilla, set: setVanilla },
+  { id: "redvelvet", nama: "Red Velvet Cookies", harga: 20000, img: cookis, state: redvelvet, set: setRedvelvet },
+  { id: "matcha", nama: "Matcha Cookies", harga: 15000, img: cookis, state: matcha, set: setMatcha },
 
-  const menuList = [
-  { id: "kopi", nama: "Kopi Hitam", harga: 12000, img: cookis, state: kopi, set: setKopi },
-  { id: "cap", nama: "Cappuccino", harga: 18000, img: cookis, state: cap, set: setCap },
-  { id: "latte", nama: "Latte", harga: 20000, img: cookis, state: latte, set: setLatte },
-  { id: "eskopi", nama: "Es Kopi Susu", harga: 15000, img: cookis, state: eskopi, set: setEskopi },
-
-  { id: "kopi", nama: "Kopi Hitam", harga: 12000, img: cookis, state: kopi, set: setKopi },
-  { id: "cap", nama: "Cappuccino", harga: 18000, img: cookis, state: cap, set: setCap },
-  { id: "latte", nama: "Latte", harga: 20000, img: cookis, state: latte, set: setLatte },
-  { id: "eskopi", nama: "Es Kopi Susu", harga: 15000, img: cookis, state: eskopi, set: setEskopi },
+  { id: "oreo", nama: "Oreo Cookies", harga: 12000, img: cookis, state: oreo, set: setOreo },
+  { id: "strawberry", nama: "Strawberry Cookies", harga: 18000, img: cookis, state: strawberry, set: setStrawberry },
+  { id: "cheese", nama: "Cheese Cookies", harga: 20000, img: cookis, state: cheese, set: setCheese },
+  { id: "caramel", nama: "Caramel Cookies", harga: 15000, img: cookis, state: caramel, set: setCaramel },
 ];
 
   // ================= FUNCTION =================
@@ -46,37 +50,57 @@ export default function App() {
   function cocok(nama) {
     return nama.toLowerCase().includes(search.toLowerCase());
   }
-
   // ================= TOTAL =================
   const totalQty =
-    (kopi.selected ? kopi.qty : 0) +
-    (cap.selected ? cap.qty : 0) +
-    (latte.selected ? latte.qty : 0) +
-    (eskopi.selected ? eskopi.qty : 0);
+    (choco.selected ? choco.qty : 0) +
+    (vanilla.selected ? vanilla.qty : 0) +
+    (redvelvet.selected ? redvelvet.qty : 0) +
+    (matcha.selected ? matcha.qty : 0) +
+    (oreo.selected ? oreo.qty : 0) +
+    (strawberry.selected ? strawberry.qty : 0) +
+    (cheese.selected ? cheese.qty : 0) +
+    (caramel.selected ? caramel.qty : 0);
 
   const totalHarga =
-    (kopi.selected ? kopi.qty * 12000 : 0) +
-    (cap.selected ? cap.qty * 18000 : 0) +
-    (latte.selected ? latte.qty * 20000 : 0) +
-    (eskopi.selected ? eskopi.qty * 15000 : 0);
+    (choco.selected ? choco.qty * 12000 : 0) +
+    (vanilla.selected ? vanilla.qty * 18000 : 0) +
+    (redvelvet.selected ? redvelvet.qty * 20000 : 0) +
+    (matcha.selected ? matcha.qty * 15000 : 0) +
+    (oreo.selected ? oreo.qty * 12000 : 0) +
+    (strawberry.selected ? strawberry.qty * 18000 : 0) +
+    (cheese.selected ? cheese.qty * 20000 : 0) +
+    (caramel.selected ? caramel.qty * 15000 : 0);
 
   // ================= WA =================
   function kirimWA() {
-    let text = "☕ Pesanan:\n";
+    let text = "🍪 Pesanan:\n";
 
-    if (kopi.selected)
-      text += `- Kopi Hitam x${kopi.qty} = ${formatRupiah(12000 * kopi.qty)}\n`;
+    if (choco.selected)
+      text += `- Chocolate Cookies x${choco.qty} = ${formatRupiah(12000 * choco.qty)}\n`;
 
-    if (cap.selected)
-      text += `- Cappuccino x${cap.qty} = ${formatRupiah(18000 * cap.qty)}\n`;
+    if (vanilla.selected)
+      text += `- Vanilla Cookies x${vanilla.qty} = ${formatRupiah(18000 * vanilla.qty)}\n`;
 
-    if (latte.selected)
-      text += `- Latte x${latte.qty} = ${formatRupiah(20000 * latte.qty)}\n`;
+    if (redvelvet.selected)
+      text += `- Red Velvet Cookies x${redvelvet.qty} = ${formatRupiah(20000 * redvelvet.qty)}\n`;
 
-    if (eskopi.selected)
-      text += `- Es Kopi Susu x${eskopi.qty} = ${formatRupiah(15000 * eskopi.qty)}\n`;
+    if (matcha.selected)
+      text += `- Matcha Cookies x${matcha.qty} = ${formatRupiah(15000 * matcha.qty)}\n`;
+
+    if (oreo.selected)
+      text += `- Oreo Cookies x${oreo.qty} = ${formatRupiah(12000 * oreo.qty)}\n`;
+
+    if (strawberry.selected)
+      text += `- Strawberry Cookies x${strawberry.qty} = ${formatRupiah(18000 * strawberry.qty)}\n`;
+
+    if (cheese.selected)
+      text += `- Cheese Cookies x${cheese.qty} = ${formatRupiah(20000 * cheese.qty)}\n`;
+
+    if (caramel.selected)
+      text += `- Caramel Cookies x${caramel.qty} = ${formatRupiah(15000 * caramel.qty)}\n`;
 
     text += "\nTotal: " + formatRupiah(totalHarga);
+
 
     window.open(
       "https://wa.me/6285726516913?text=" + encodeURIComponent(text),
@@ -98,6 +122,27 @@ export default function App() {
     <div className="konten">
       <Header totalQty={totalQty} showPopup={showPopup} />
     
+    
+ <article className="artc2">
+        <img className="cookies2" src={cookies2} alt="cookies2" />
+        <section>
+          <h2 className="artcH22">Pengertian</h2>
+<p className="artcP2">       Biskuit cookies adalah jenis kue  kering 
+renyah hasil panggangan yang terbuat dari
+adonan  lunak, umumnya   berukuran   kecil, 
+manis,    dan   tinggi lemak.       Berdasarkan,
+cookies sering  dikategorikan sebagai jenis
+biskuit,   namun     memiliki    tekstur     yang 
+lebih    lunak   saat    mentah      dan       lebih 
+renyah/rapuh saat matang. </p>
+        </section>
+        <img className="cookies3" src={cookies2} alt="cookies3" />
+      </article>
+
+<hr className="hr1" />
+
+<h3 className="h3menu">Produk</h3>
+
      <Menu1
   menuList={menuList}
   cocok={cocok}
@@ -105,6 +150,8 @@ export default function App() {
   ubahJumlah={ubahJumlah}
   formatRupiah={formatRupiah}
 />
+
+
 
     {popup && (
   <dialog className="popup" open>
@@ -116,12 +163,16 @@ export default function App() {
 
       <section>
         <pre>
-          {`☕ Pesanan:\n` +
-            (kopi.selected ? `- Kopi Hitam x${kopi.qty}\n` : "") +
-            (cap.selected ? `- Cappuccino x${cap.qty}\n` : "") +
-            (latte.selected ? `- Latte x${latte.qty}\n` : "") +
-            (eskopi.selected ? `- Es Kopi Susu x${eskopi.qty}\n` : "") +
-            `\nTotal: ${formatRupiah(totalHarga)}`}
+          {`🍪 Pesanan:\n` +
+  (choco.selected ? `- Chocolate Cookies x${choco.qty}\n` : "") +
+  (vanilla.selected ? `- Vanilla Cookies x${vanilla.qty}\n` : "") +
+  (redvelvet.selected ? `- Red Velvet Cookies x${redvelvet.qty}\n` : "") +
+  (matcha.selected ? `- Matcha Cookies x${matcha.qty}\n` : "") +
+  (oreo.selected ? `- Oreo Cookies x${oreo.qty}\n` : "") +
+  (strawberry.selected ? `- Strawberry Cookies x${strawberry.qty}\n` : "") +
+  (cheese.selected ? `- Cheese Cookies x${cheese.qty}\n` : "") +
+  (caramel.selected ? `- Caramel Cookies x${caramel.qty}\n` : "") +
+  `\nTotal: ${formatRupiah(totalHarga)}`}
         </pre>
       </section>
 
@@ -133,6 +184,7 @@ export default function App() {
     </article>
   </dialog>
 )}
+
     </div>
   );
 }

@@ -13,6 +13,7 @@ export default function Menu1({
   return (
     
     <div className="menu">
+
       
     {menuList.map((item) =>
   cocok(item.nama) ? (
@@ -21,12 +22,12 @@ export default function Menu1({
       className={`item ${item.state.selected ? "selected" : ""}`}
       onClick={() => toggleItem(item.set, item.state)}
     >
-      <figure>
+      <figure className="figure1">
         <img src={item.img} alt={item.nama} />
       </figure>
 
       <header>
-        <h3>{item.nama}</h3>
+        <h3 className="itemh3">{item.nama}</h3>
       </header>
 
       <p>{formatRupiah(item.harga)}</p>

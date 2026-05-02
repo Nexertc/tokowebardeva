@@ -6,6 +6,11 @@ import ig from "../img/yt.png";
 import tk from "../img/tiktokrm.png";
 
 export default function Header({ totalQty, showPopup }) {
+
+  function exit1(){
+    window.location.href='https://www.google.com/';
+  }
+
   return (
     <header className="head1">
       <nav className="navbar">
@@ -39,7 +44,7 @@ export default function Header({ totalQty, showPopup }) {
 
         <section className="sec2">
           <button className="btnb">Beli Produk</button>
-          <button className="btnex">Exit</button>
+          <button className="btnex" onClick={exit1}>Exit</button>
         </section>
       </article>
     </header>
