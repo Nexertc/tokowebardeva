@@ -1,4 +1,5 @@
 
+import {useState} from "react";
 import "./header.css";
 import cookis from "../img/cookis.png";
 import yt from "../img/ig.png";
@@ -7,9 +8,14 @@ import tk from "../img/tiktokrm.png";
 
 export default function Header({ totalQty, showPopup }) {
 
+  function klik(){
+    window.location.href="#menu";
+  }
+
   function exit1(){
     window.location.href='https://www.google.com/';
   }
+  
 
   return (
     <header className="head1">
@@ -43,10 +49,13 @@ export default function Header({ totalQty, showPopup }) {
         </section>
 
         <section className="sec2">
-          <button className="btnb">Beli Produk</button>
+          <button className="btnb" onClick={klik}>Beli Produk</button>
           <button className="btnex" onClick={exit1}>Exit</button>
         </section>
       </article>
+
+
+
     </header>
   );
 }

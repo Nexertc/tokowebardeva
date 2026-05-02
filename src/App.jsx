@@ -4,10 +4,9 @@ import cookis from "./img/produkc4.jpg";
 import cookies2 from "./img/cookis.png";
 import Header from "./components/Header";
 import Menu1 from "./components/Menu1";
+import Footer from "./components/Footer";
 
 export default function App() {
-
-  
   // ================= STATE =================
   const [choco, setChoco] = useState({ qty: 1, selected: false });
   const [vanilla, setVanilla] = useState({ qty: 1, selected: false });
@@ -20,17 +19,73 @@ export default function App() {
   const [caramel, setCaramel] = useState({ qty: 1, selected: false });
 
   const [search, setSearch] = useState("");
-const menuList = [
-  { id: "choco", nama: "Chocolate Cookies", harga: 12000, img: cookis, state: choco, set: setChoco },
-  { id: "vanilla", nama: "Vanilla Cookies", harga: 18000, img: cookis, state: vanilla, set: setVanilla },
-  { id: "redvelvet", nama: "Red Velvet Cookies", harga: 20000, img: cookis, state: redvelvet, set: setRedvelvet },
-  { id: "matcha", nama: "Matcha Cookies", harga: 15000, img: cookis, state: matcha, set: setMatcha },
+  const menuList = [
+    {
+      id: "choco",
+      nama: "Chocolate Cookies",
+      harga: 12000,
+      img: cookis,
+      state: choco,
+      set: setChoco,
+    },
+    {
+      id: "vanilla",
+      nama: "Vanilla Cookies",
+      harga: 18000,
+      img: cookis,
+      state: vanilla,
+      set: setVanilla,
+    },
+    {
+      id: "redvelvet",
+      nama: "Red Velvet Cookies",
+      harga: 20000,
+      img: cookis,
+      state: redvelvet,
+      set: setRedvelvet,
+    },
+    {
+      id: "matcha",
+      nama: "Matcha Cookies",
+      harga: 15000,
+      img: cookis,
+      state: matcha,
+      set: setMatcha,
+    },
 
-  { id: "oreo", nama: "Oreo Cookies", harga: 12000, img: cookis, state: oreo, set: setOreo },
-  { id: "strawberry", nama: "Strawberry Cookies", harga: 18000, img: cookis, state: strawberry, set: setStrawberry },
-  { id: "cheese", nama: "Cheese Cookies", harga: 20000, img: cookis, state: cheese, set: setCheese },
-  { id: "caramel", nama: "Caramel Cookies", harga: 15000, img: cookis, state: caramel, set: setCaramel },
-];
+    {
+      id: "oreo",
+      nama: "Oreo Cookies",
+      harga: 12000,
+      img: cookis,
+      state: oreo,
+      set: setOreo,
+    },
+    {
+      id: "strawberry",
+      nama: "Strawberry Cookies",
+      harga: 18000,
+      img: cookis,
+      state: strawberry,
+      set: setStrawberry,
+    },
+    {
+      id: "cheese",
+      nama: "Cheese Cookies",
+      harga: 20000,
+      img: cookis,
+      state: cheese,
+      set: setCheese,
+    },
+    {
+      id: "caramel",
+      nama: "Caramel Cookies",
+      harga: 15000,
+      img: cookis,
+      state: caramel,
+      set: setCaramel,
+    },
+  ];
 
   // ================= FUNCTION =================
   function ubahJumlah(setter, data, delta) {
@@ -101,7 +156,6 @@ const menuList = [
 
     text += "\nTotal: " + formatRupiah(totalHarga);
 
-
     window.open(
       "https://wa.me/6285726516913?text=" + encodeURIComponent(text),
       "_blank",
@@ -112,78 +166,93 @@ const menuList = [
 
   function showPopup() {
     setPopup(true);
+    setOve(true);
+    document.body.style.overflow = "hidden";
   }
 
   function hidePopup() {
     setPopup(false);
+    setOve(!ove);
+    document.body.style.overflow = "auto";
   }
+
+  const [ove, setOve] = useState(false);
 
   return (
     <div className="konten">
       <Header totalQty={totalQty} showPopup={showPopup} />
-    
-    
- <article className="artc2">
+
+      <article className="artc2">
         <img className="cookies2" src={cookies2} alt="cookies2" />
         <section>
           <h2 className="artcH22">Pengertian</h2>
-<p className="artcP2">       Biskuit cookies adalah jenis kue  kering 
-renyah hasil panggangan yang terbuat dari
-adonan  lunak, umumnya   berukuran   kecil, 
-manis,    dan   tinggi lemak.       Berdasarkan,
-cookies sering  dikategorikan sebagai jenis
-biskuit,   namun     memiliki    tekstur     yang 
-lebih    lunak   saat    mentah      dan       lebih 
-renyah/rapuh saat matang. </p>
+          <p className="artcP2">
+            {" "}
+            Biskuit cookies adalah jenis kue kering renyah hasil panggangan yang
+            terbuat dari adonan lunak, umumnya berukuran kecil, manis, dan
+            tinggi lemak. Berdasarkan, cookies sering dikategorikan sebagai
+            jenis biskuit, namun memiliki tekstur yang lebih lunak saat mentah
+            dan lebih renyah/rapuh saat matang.{" "}
+          </p>
         </section>
         <img className="cookies3" src={cookies2} alt="cookies3" />
       </article>
 
-<hr className="hr1" />
+      <hr className="hr1" />
 
-<h3 className="h3menu">Produk</h3>
+      <h3 className="h3menu" id="menu">
+        Produk
+      </h3>
 
-     <Menu1
-  menuList={menuList}
-  cocok={cocok}
-  toggleItem={toggleItem}
-  ubahJumlah={ubahJumlah}
-  formatRupiah={formatRupiah}
-/>
+      <Menu1
+        menuList={menuList}
+        cocok={cocok}
+        toggleItem={toggleItem}
+        ubahJumlah={ubahJumlah}
+        formatRupiah={formatRupiah}
+      />
 
+      {ove && <div className="ove"></div>}
 
+      {popup && (
+        <dialog className="popup" open>
+          <article className="popupContent">
+            <header>
+              <h2>Pesanan Anda</h2>
+            </header>
 
-    {popup && (
-  <dialog className="popup" open>
-    <article className="popupContent">
-      
-      <header>
-        <h2>Pesanan Anda</h2>
-      </header>
+            <section>
+              <pre>
+                {`🍪 Pesanan:\n` +
+                  (choco.selected
+                    ? `- Chocolate Cookies x${choco.qty}\n`
+                    : "") +
+                  (vanilla.selected
+                    ? `- Vanilla Cookies x${vanilla.qty}\n`
+                    : "") +
+                  (redvelvet.selected
+                    ? `- Red Velvet Cookies x${redvelvet.qty}\n`
+                    : "") +
+                  (matcha.selected ? `- Matcha Cookies x${matcha.qty}\n` : "") +
+                  (oreo.selected ? `- Oreo Cookies x${oreo.qty}\n` : "") +
+                  (strawberry.selected
+                    ? `- Strawberry Cookies x${strawberry.qty}\n`
+                    : "") +
+                  (cheese.selected ? `- Cheese Cookies x${cheese.qty}\n` : "") +
+                  (caramel.selected
+                    ? `- Caramel Cookies x${caramel.qty}\n`
+                    : "") +
+                  `\nTotal: ${formatRupiah(totalHarga)}`}
+              </pre>
+            </section>
 
-      <section>
-        <pre>
-          {`🍪 Pesanan:\n` +
-  (choco.selected ? `- Chocolate Cookies x${choco.qty}\n` : "") +
-  (vanilla.selected ? `- Vanilla Cookies x${vanilla.qty}\n` : "") +
-  (redvelvet.selected ? `- Red Velvet Cookies x${redvelvet.qty}\n` : "") +
-  (matcha.selected ? `- Matcha Cookies x${matcha.qty}\n` : "") +
-  (oreo.selected ? `- Oreo Cookies x${oreo.qty}\n` : "") +
-  (strawberry.selected ? `- Strawberry Cookies x${strawberry.qty}\n` : "") +
-  (cheese.selected ? `- Cheese Cookies x${cheese.qty}\n` : "") +
-  (caramel.selected ? `- Caramel Cookies x${caramel.qty}\n` : "") +
-  `\nTotal: ${formatRupiah(totalHarga)}`}
-        </pre>
-      </section>
+            <button onClick={kirimWA}>Kirim WA</button>
+            <button onClick={hidePopup}>Tutup</button>
+          </article>
+        </dialog>
+      )}
 
-     
-        <button onClick={kirimWA}>Kirim WA</button>
-        <button onClick={hidePopup}>Tutup</button>
-   
-
-    </article>
-  </dialog>
-)}
+      <Footer />
 
     </div>
   );

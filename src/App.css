@@ -2,6 +2,7 @@
     * {
       box-sizing: border-box;
       transition: all 0.3s ease;
+      
     }
 
     body {
@@ -283,8 +284,9 @@
 .hr1{
   margin-top: 10vw;
   margin-bottom: 4vw;
-  border: 0.1vw solid #D4A373;
-  width: 99%;
+  background: #D4A373;
+  height: 0.2vw;
+  width: 100%;
 }
 
   .h3menu{
