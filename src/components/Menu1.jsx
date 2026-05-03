@@ -1,4 +1,5 @@
 import "../App.css";
+import "./menu1.css";
 import cookies from "../img/cookis.png";
 
 export default function Menu1({

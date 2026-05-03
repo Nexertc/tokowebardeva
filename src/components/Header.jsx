@@ -15,7 +15,18 @@ export default function Header({ totalQty, showPopup }) {
   function exit1(){
     window.location.href='https://www.google.com/';
   }
+
+  const [open, setOpen] = useState(false);
   
+  function openside(){
+  setOpen(true);
+  document.body.style.overflow="hidden";
+  }
+
+  function closeside(){
+    setOpen(false);
+    document.body.style.overflow="auto";
+  }
 
   return (
     <header className="head1">
@@ -32,7 +43,12 @@ export default function Header({ totalQty, showPopup }) {
         <a className="hyperlink1" href="#">Blog</a>
         </section>
 
-        <div className="menu2">☰</div>
+       <button
+        className="menu2"
+        onClick={openside}
+      >
+        ☰
+      </button>
       </nav>
 
       <article className="sec1">
@@ -54,7 +70,34 @@ export default function Header({ totalQty, showPopup }) {
         </section>
       </article>
 
+      {/* Overlay */}
+      {open && (
+        <div
+          className="overlay"
+          onClick={() => setOpen(false)}
+        ></div>
+      )}
 
+      {/* Sidebar */}
+      <aside className={`sidebar ${open ? "active" : ""}`}>
+        <div className="sidebar-top">
+          <h2>Menu</h2>
+
+          <button
+            className="close-btn"
+            onClick={closeside}
+          >
+            ✕
+          </button>
+        </div>
+
+        <nav>
+          <a href="#">Home</a>
+          <a href="#">Produk</a>
+          <a href="#">Tentang</a>
+          <a href="#">Kontak</a>
+        </nav>
+      </aside>
 
     </header>
   );

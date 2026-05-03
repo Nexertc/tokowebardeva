@@ -253,12 +253,12 @@ export default function App() {
         <section>
           <h2 className="artcH22">Pengertian</h2>
           <p className="artcP2">
-            {" "}
+          
             Biskuit cookies adalah jenis kue kering renyah hasil panggangan yang
             terbuat dari adonan lunak, umumnya berukuran kecil, manis, dan
             tinggi lemak. Berdasarkan, cookies sering dikategorikan sebagai
             jenis biskuit, namun memiliki tekstur yang lebih lunak saat mentah
-            dan lebih renyah/rapuh saat matang.{" "}
+            dan lebih renyah/rapuh saat matang.
           </p>
         </section>
         <img className="cookies3" src={cookies2} alt="cookies3" />

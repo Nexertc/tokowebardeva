@@ -72,7 +72,7 @@
 }
 
 /* Responsive */
-@media (max-width: 600px) {
+@media (max-width: 900px) {
   .footer-container {
     flex-direction: column;
     gap: 6vw;
