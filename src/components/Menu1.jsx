@@ -4,7 +4,6 @@ import cookies from "../img/cookis.png";
 
 export default function Menu1({
   menuList,
-  cocok,
   toggleItem,
   ubahJumlah,
   formatRupiah,
@@ -17,8 +16,7 @@ export default function Menu1({
     <div className="menu">
 
       
-    {menuList.map((item) =>
-  cocok(item.nama) ? (
+    {menuList.map((item) => (
     <article
       key={item.id}
       className={`item ${item.state.selected ? "selected" : ""}`}
@@ -49,8 +47,7 @@ export default function Menu1({
         </button>
       </footer>
     </article>
-  ) : null
-)}
+  ))}
  <img src={cookies} alt="cookies" className="imgmenu1" />
     </div>
   );

@@ -74,7 +74,7 @@ export default function Header({ totalQty, showPopup }) {
       {open && (
         <div
           className="overlay"
-          onClick={() => setOpen(false)}
+      
         ></div>
       )}
 

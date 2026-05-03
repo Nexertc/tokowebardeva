@@ -5,6 +5,7 @@ import cookies2 from "./img/cookis.png";
 import Header from "./components/Header";
 import Menu1 from "./components/Menu1";
 import Footer from "./components/Footer";
+import Keranjang from "./components/Keranjang";
 
 export default function App() {
   // ================= STATE =================
@@ -18,7 +19,6 @@ export default function App() {
   const [cheese, setCheese] = useState({ qty: 1, selected: false });
   const [caramel, setCaramel] = useState({ qty: 1, selected: false });
 
-  const [search, setSearch] = useState("");
   const menuList = [
     {
       id: "choco",
@@ -102,9 +102,6 @@ export default function App() {
     return "Rp" + angka.toLocaleString("id-ID");
   }
 
-  function cocok(nama) {
-    return nama.toLowerCase().includes(search.toLowerCase());
-  }
   // ================= TOTAL =================
   const totalQty =
     (choco.selected ? choco.qty : 0) +
@@ -172,11 +169,23 @@ export default function App() {
 
   function hidePopup() {
     setPopup(false);
-    setOve(!ove);
+    setOve(false);
     document.body.style.overflow = "auto";
   }
 
   const [ove, setOve] = useState(false);
+
+  const [showCart, setShowCart] = useState(false);
+
+  const cartItems = menuList
+  .filter((item) => item.state.selected)
+  .map((item) => ({
+    id: item.id,
+    nama: item.nama,
+    harga: item.harga,
+    qty: item.state.qty,
+    img: item.img,
+  }));
 
   return (
     <div className="konten">
@@ -196,7 +205,6 @@ export default function App() {
 
       <Menu1
         menuList={menuList}
-        cocok={cocok}
         toggleItem={toggleItem}
         ubahJumlah={ubahJumlah}
         formatRupiah={formatRupiah}
@@ -205,45 +213,17 @@ export default function App() {
       {ove && <div className="ove"></div>}
 
       {popup && (
-        <dialog className="popup" open>
-          <article className="popupContent">
-            <header>
-              <h2>Pesanan Anda</h2>
-            </header>
+      
+      
+         <Keranjang
+    cartItems={cartItems}
+    totalHarga={totalHarga}
+    formatRupiah={formatRupiah}
+    kirimWA={kirimWA}
+    setShowCart={hidePopup}
+  />
 
-            <section>
-              <pre>
-                {`🍪 Pesanan:\n` +
-                  (choco.selected
-                    ? `- Chocolate Cookies x${choco.qty}\n`
-                    : "") +
-                  (vanilla.selected
-                    ? `- Vanilla Cookies x${vanilla.qty}\n`
-                    : "") +
-                  (redvelvet.selected
-                    ? `- Red Velvet Cookies x${redvelvet.qty}\n`
-                    : "") +
-                  (matcha.selected ? `- Matcha Cookies x${matcha.qty}\n` : "") +
-                  (oreo.selected ? `- Oreo Cookies x${oreo.qty}\n` : "") +
-                  (strawberry.selected
-                    ? `- Strawberry Cookies x${strawberry.qty}\n`
-                    : "") +
-                  (cheese.selected ? `- Cheese Cookies x${cheese.qty}\n` : "") +
-                  (caramel.selected
-                    ? `- Caramel Cookies x${caramel.qty}\n`
-                    : "") +
-                  `\nTotal: ${formatRupiah(totalHarga)}`}
-              </pre>
-            </section>
-
-            <button className="btnpopup" onClick={kirimWA}>
-              Kirim WA
-            </button>
-            <button className="btnpopup" onClick={hidePopup}>
-              Tutup
-            </button>
-          </article>
-        </dialog>
+        
       )}
 
            <hr className="hr1" />
@@ -263,6 +243,9 @@ export default function App() {
         </section>
         <img className="cookies3" src={cookies2} alt="cookies3" />
       </article>
+
+   
+
 
       <Footer />
     </div>
