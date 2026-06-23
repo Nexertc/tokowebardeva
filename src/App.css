@@ -1,3 +1,19 @@
+@import "tailwindcss";
+
+:root {
+  --color1: #4e95ff;
+  --color3: gold;
+  --color4: white;
+  --color5: black;
+
+  --still1: #0f172acc;
+  --still2: white;
+  --still3: #1b1b1c;
+
+  --fontp: "Poppins", sans-serif;
+}
+
+
 * {
   box-sizing: border-box;
   transition: all 0.3s ease;
@@ -7,6 +23,7 @@ body {
   margin: 0;
   min-height: 100vh;
   overflow-x: hidden;
+  font-family: 'poppins', sans-serif;
 }
 
 body::-webkit-scrollbar {
@@ -40,7 +57,7 @@ body::-webkit-scrollbar {
 
 .popup h3 {
   text-align: center;
-  color: #b45309;
+  color: var(--color1);
   margin-bottom: 15px;
   font-size: 22px;
 }
@@ -58,7 +75,7 @@ body::-webkit-scrollbar {
   border: none;
   width: 30%;
   margin-right: 1vw;
-  background: #d6ad60;
+  background: var(--color1);
   color: white;
   border-radius: 0.5vw;
 }
@@ -74,27 +91,28 @@ pre {
 }
 
 .menu button {
-  background: #d6ad60;
+  background: var(--color1);
   border: none;
-  color: black;
+  color: var(--color4);
   font-weight: 600;
   border-radius: 50%;
 
   padding: 0.7vw 1vw;
-  font-size: 1.3rem;
+  font-size: 1rem;
 }
 
 .hr1 {
   margin-top: 4vw;
   margin-bottom: 10vw;
-  background: #d4a373;
+  background:var(--color1);
   height: 0.2vw;
   width: 100%;
+  border: none;
 }
 
 .artc2 {
   display: flex;
-  border: 0.2vw solid #d6ad60;
+  border: 0.2vw solid var(--color1);
   padding: 2vw;
   padding-top: 4vw;
   padding-bottom: 4vw;
@@ -119,7 +137,7 @@ pre {
 }
 
 .artcH22 {
-  background: #d4a373;
+  background: var(--color1);
   padding: 0.7vw;
   color: white;
   width: 50%;
@@ -134,7 +152,6 @@ pre {
   width: 75%;
   text-align: justify;
   text-indent: 1rem;
-  font-family: sans-serif;
   font-size: clamp(0.85rem, 2vw, 1rem);
 }
 
@@ -146,18 +163,52 @@ pre {
 }
 
 .headmenu {
-  width: 80%;
+  width: 95%;
   display: flex;
   align-items: center;
-  justify-content: start;
-  background: linear-gradient(90deg, #7b4a18, #b76c03);
+  justify-content: center;
+  background: var(--color1);
   padding: 1.5vw;
   border-radius: 0.7vw;
-  border: 0.2vw solid #d6ad60;
+  margin-top: 3vw;
+  position: relative;
+}
+
+.headmenu h2{
+  font-size: 1.3rem;
+  color: var(--color4);
+  text-align: center;
+  margin-left: 3vw;
+  margin-right: 3vw;
+  border: 0.15vw solid var(--color4);
+  padding: 1vw 3vw 1vw 3vw;
+  width: 30%;
+  font-weight: 800;
+}
+
+.headmenu h3{
+  width: 5%;
+  
+}
+
+.headmenu .shoppingbag{
+  color: var(--color4);
+width: 100%;
+height: 100%;
+stroke-width: 1.2;
+}
+
+.headmenu  .shoppingbag1{
+  position: absolute;
+  left: 1vw;
+}
+
+.headmenu .shoppingbag2{
+  position: absolute;
+  right: 1vw;
 }
 
 .h4pesan {
-  font-family: Arial, Helvetica, sans-serif;
   font-weight: 700;
   color: #fff;
   display: flex;
@@ -168,11 +219,11 @@ pre {
 }
 
 .h4pesan2 {
-  font-family: Arial, Helvetica, sans-serif;
   width: 20%;
   color: white;
   font-weight: 700;
 }
+
 
 @media (max-width: 900px) {
   .headmenu {
@@ -189,7 +240,6 @@ pre {
   }
 
   .h4pesan {
-    font-family: Arial, Helvetica, sans-serif;
     font-weight: 700;
     color: #fff;
     display: flex;
@@ -205,7 +255,6 @@ pre {
   }
 
   .h4pesan2 {
-    font-family: Arial, Helvetica, sans-serif;
     width: 40%;
     color: white;
     font-weight: 700;
@@ -260,8 +309,6 @@ pre {
     width: 100%;
     text-align: justify;
     text-indent: 1rem;
-    font-family: sans-serif;
-  
   }
 
   .cookies3 {

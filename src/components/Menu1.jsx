@@ -31,7 +31,7 @@ export default function Menu1({
       </header>
 
       <p>{formatRupiah(item.harga)}</p>
-
+        <p>{item.penjelasan}</p>
       <footer
         className="jumlah"
         onClick={(e) => e.stopPropagation()}
@@ -48,7 +48,7 @@ export default function Menu1({
       </footer>
     </article>
   ))}
- <img src={cookies} alt="cookies" className="imgmenu1" />
+ {/* <img src={cookies} alt="cookies" className="imgmenu1" /> */}
     </div>
   );
 }
