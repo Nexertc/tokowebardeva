@@ -26,6 +26,19 @@
   border-bottom: 0.15vw solid var(--color4);
 }
 
+.navbar h1{
+  position: absolute;
+  left: 4vw;
+  color: var(--still2);
+  font-style: italic;
+  font-size: 1.5rem;
+  font-weight: 700;
+}
+
+.navbar h1 span{
+  color: var(--still1);
+}
+
 /* Keranjang */
 #cartBtn {
   position: absolute;
@@ -68,6 +81,7 @@
   font-size: 3rem;
   background: none;
   border: none;
+  display: none;
 }
 
 .menu2 .iconmenu{
@@ -170,6 +184,7 @@
 }
 
 .hyperlink1{
+  font-size: 1.2rem;
   text-decoration: none;
   color: white;
 }

@@ -1,6 +1,5 @@
 import { useState } from "react";
 import "./App.css";
-import cookis from "./img/produkc4.jpg";
 import cookies2 from "./img/cookis.png";
 import Header from "./components/Header";
 import Menu1 from "./components/Menu1";
@@ -8,8 +7,15 @@ import Footer from "./components/Footer";
 import Keranjang from "./components/Keranjang";
 import Navbar from "./components/Navbar";
 import { ShoppingBag } from "react-feather";
+import { Search } from "react-feather";
+import Section3 from "./components/section3";
+import nxc2 from "./img/nxc2.png";
+import {  useNavigate } from "react-router-dom";
 
 export default function App() {
+
+  const Navigate = useNavigate();
+
   const [bengbeng, setBengbeng] = useState({
     qty: 1,
     selected: false,
@@ -141,24 +147,48 @@ export default function App() {
     return total + (item.state.selected ? item.state.qty * item.harga : 0);
   }, 0);
 
-  // ================= WA =================
-  function kirimWA() {
-    let text = "🛒 Pesanan:\n\n";
-
-    menuList.forEach((item) => {
-      if (item.state.selected) {
-        text += `• ${item.nama} x${item.state.qty} = ${formatRupiah(item.harga * item.state.qty)}\n`;
-      }
-    });
-
-    text += `\nTotal Item: ${totalQty}`;
-    text += `\nTotal Harga: ${formatRupiah(totalHarga)}`;
-
-    window.open(
-      "https://wa.me/6285726516913?text=" + encodeURIComponent(text),
-      "_blank",
-    );
+async function kirimKeSheets() {
+  if (!nama.trim() || !meja.trim()) {
+    setStatusMessage("Isi nama dan nomor meja terlebih dahulu.");
+    return;
   }
+
+  if (cartItems.length === 0) {
+    setStatusMessage("Keranjang masih kosong.");
+    return;
+  }
+
+  setIsSubmitting(true);
+  setStatusMessage("");
+
+  try {
+    await fetch(
+      "https://script.google.com/macros/s/AKfycbydmqAbZHq649buZ_KxrkIruM46KXx0lVYf1CdaLBsmHVDMMa7z_EFlNZghmsr4yU_AoQ/exec",
+      {
+        method: "POST",
+        mode: "no-cors",
+        body: JSON.stringify({
+          nama: nama.trim(),
+          meja: meja.trim(),
+          pesanan: cartItems
+            .map((item) => `${item.nama} x${item.qty}`)
+            .join(", "),
+          total: totalHarga,
+        }),
+      }
+    );
+
+    setStatusMessage("Pesanan berhasil dikirim ke Google Sheets.");
+    setNama("");
+    setMeja("");
+  } catch (error) {
+    console.error(error);
+    setStatusMessage("Gagal mengirim pesanan.");
+  } finally {
+    setIsSubmitting(false);
+  }
+ Navigate("/Selesai");
+}
   const [popup, setPopup] = useState(false);
 
   function showPopup() {
@@ -176,6 +206,11 @@ export default function App() {
   const [ove, setOve] = useState(false);
 
   const [showCart, setShowCart] = useState(false);
+  const [searchTerm, setSearchTerm] = useState("");
+  const [nama, setNama] = useState("");
+  const [meja, setMeja] = useState("");
+  const [isSubmitting, setIsSubmitting] = useState(false);
+  const [statusMessage, setStatusMessage] = useState("");
 
   const cartItems = menuList
     .filter((item) => item.state.selected)
@@ -187,56 +222,62 @@ export default function App() {
       img: item.img,
     }));
 
+  // filtered menu based on searchTerm (case-insensitive)
+  const filteredMenuList = menuList.filter((item) => {
+    if (!searchTerm || searchTerm.trim() === "") return true;
+    return item.nama.toLowerCase().includes(searchTerm.trim().toLowerCase());
+  });
+
   return (
     <div className="konten">
-      {/* <Header totalQty={totalQty} showPopup={showPopup} /> */}
       <Navbar showPopup={showPopup} totalQty={totalQty} />
 
-      <div className="headmenu">
-        {/* <h4 className="h4pesan" id="menu">
-          <img src={cookies2} alt="cookis" width="10%" /> Pesan sekarang
-        </h4> */}
-          <h3 className="shoppingbag1"><ShoppingBag className="shoppingbag"/></h3>
-         <h2>Ayo Beli <br /> sekarang</h2>
-         <h3 className="shoppingbag2"><ShoppingBag className="shoppingbag"/></h3>
-      </div>
-
-      <Menu1
-        menuList={menuList}
-        toggleItem={toggleItem}
-        ubahJumlah={ubahJumlah}
-        formatRupiah={formatRupiah}
-      />
-
       {ove && <div className="ove"></div>}
-
       {popup && (
         <Keranjang
           cartItems={cartItems}
           totalHarga={totalHarga}
           formatRupiah={formatRupiah}
-          kirimWA={kirimWA}
+          kirimKeSheets={kirimKeSheets}
           setShowCart={hidePopup}
+          nama={nama}
+          setNama={setNama}
+          meja={meja}
+          setMeja={setMeja}
+          isSubmitting={isSubmitting}
+          statusMessage={statusMessage}
         />
       )}
-{/* 
+
+      <div className="headmenu">
+        <img src={nxc2} alt="nxc2" />
+        <h3 className="shoppingbag2">
+          <ShoppingBag className="shoppingbag" />
+        </h3>
+        <label className="input1">
+          <Search />
+          <input
+            type="text"
+            placeholder="cari barang"
+            value={searchTerm}
+            onChange={(e) => setSearchTerm(e.target.value)}
+          />
+        </label>
+      </div>
+
+      {searchTerm.trim().length >= 1 && filteredMenuList.length === 0 && (
+        <p style={{ textAlign: "center", margin: "8px 0" }}>Barang tidak ada</p>
+      )}
+
+      <Menu1
+        menuList={filteredMenuList}
+        toggleItem={toggleItem}
+        ubahJumlah={ubahJumlah}
+        formatRupiah={formatRupiah}
+      />
+
       <hr className="hr1" />
-
-      <article className="artc2">
-        <img className="cookies2" src={cookies2} alt="cookies2" />
-        <section>
-          <h2 className="artcH22">Pengertian</h2>
-          <p className="artcP2">
-            Biskuit cookies adalah jenis kue kering renyah hasil panggangan yang
-            terbuat dari adonan lunak, umumnya berukuran kecil, manis, dan
-            tinggi lemak. Berdasarkan, cookies sering dikategorikan sebagai
-            jenis biskuit, namun memiliki tekstur yang lebih lunak saat mentah
-            dan lebih renyah/rapuh saat matang.
-          </p>
-        </section>
-        <img className="cookies3" src={cookies2} alt="cookies3" />
-      </article> */}
-
+      <Section3 />
       <Footer />
     </div>
   );

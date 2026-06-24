@@ -7,8 +7,14 @@ export default function Keranjang({
   cartItems,
   totalHarga,
   formatRupiah,
-  kirimWA,
+  kirimKeSheets,
   setShowCart,
+  nama,
+  setNama,
+  meja,
+  setMeja,
+  isSubmitting,
+  statusMessage,
 }) {
   return (
     <section className="keranjangPage">
@@ -67,12 +73,25 @@ export default function Keranjang({
                   {formatRupiah(totalHarga)}
                 </h3>
               </section>
-
+              <input
+                type="text"
+                placeholder="Nama"
+                value={nama}
+                onChange={(e) => setNama(e.target.value)}
+              />
+              <input
+                type="text"
+                placeholder="Nomor Meja"
+                value={meja}
+                onChange={(e) => setMeja(e.target.value)}
+              />
+              {statusMessage && <p className="statusMessage">{statusMessage}</p>}
               <button
                 className="waButton"
-                onClick={kirimWA}
+                onClick={kirimKeSheets}
+                disabled={isSubmitting}
               >
-                Kirim Pesanan WhatsApp
+                {isSubmitting ? "Mengirim..." : "Kirim Pesanan ke Google Sheets"}
               </button>
             </footer>
           </>

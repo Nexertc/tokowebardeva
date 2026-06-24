@@ -105,7 +105,7 @@ pre {
   margin-top: 4vw;
   margin-bottom: 10vw;
   background:var(--color1);
-  height: 0.2vw;
+  height: 0.1vw;
   width: 100%;
   border: none;
 }
@@ -168,27 +168,25 @@ pre {
   align-items: center;
   justify-content: center;
   background: var(--color1);
-  padding: 1.5vw;
+  
   border-radius: 0.7vw;
   margin-top: 3vw;
   position: relative;
-}
-
-.headmenu h2{
-  font-size: 1.3rem;
-  color: var(--color4);
-  text-align: center;
-  margin-left: 3vw;
-  margin-right: 3vw;
-  border: 0.15vw solid var(--color4);
-  padding: 1vw 3vw 1vw 3vw;
-  width: 30%;
-  font-weight: 800;
+  height: 8vw;
 }
 
 .headmenu h3{
   width: 5%;
   
+}
+
+.headmenu  img{
+  height: 80%;
+  width: auto;
+  background: var(--still2);
+  position: absolute;
+  left: 1vw;
+  border-radius: 0.4vw;
 }
 
 .headmenu .shoppingbag{
@@ -206,6 +204,21 @@ stroke-width: 1.2;
 .headmenu .shoppingbag2{
   position: absolute;
   right: 1vw;
+}
+
+.headmenu .input1{
+  display: flex;
+  background: white;
+  padding: 1vw;
+  gap: 1vw;
+  width: 40%;
+  border-radius: 0.4vw;
+ 
+}
+
+.headmenu input{
+  background: white;
+  width: 100%;
 }
 
 .h4pesan {

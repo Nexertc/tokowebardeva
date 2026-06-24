@@ -243,6 +243,10 @@
   background: #a96d3f;
 }
 
+.keranjangPage input{
+  border: 0.1vw solid var(--still1);
+}
+
 @media (max-width: 900px) {
   .keranjangBox {
     width: 90%;

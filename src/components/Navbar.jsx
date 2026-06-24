@@ -25,6 +25,9 @@ export default function Navbar({
               >
                <Menu className="iconmenu"/>
               </button>
+
+            <h1>Tokoweb<span>Ardeva</span>.</h1>
+
               </nav>
     );
 }

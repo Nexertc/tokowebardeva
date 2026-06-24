@@ -2,8 +2,6 @@
 import {useState} from "react";
 import "./header.css";
 import cookis from "../img/cookis.png";
-import yt from "../img/ig.png";
-import ig from "../img/yt.png";
 import tk from "../img/tiktokrm.png";
 
 export default function Header({ totalQty, showPopup }) {
