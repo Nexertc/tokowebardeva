@@ -39,7 +39,7 @@
 
 .titleCart h2 {
   font-size: clamp(1.3rem, 2vw, 2.2rem);
-  color: #5c3d2e;
+  color: var(--color1);
 }
 
 .titleCart p {
@@ -86,7 +86,7 @@
 
 .cartKosong h3 {
   font-size: clamp(1.3rem, 1.8vw, 2rem);
-  color: #5c3d2e;
+  color: var(--color1);
 }
 
 .cartKosong p {
@@ -145,7 +145,7 @@
 
   margin-bottom: 1vw;
 
-  color: #4b3225;
+  color: var(--color1);
 }
 
 .qtyBox {
@@ -163,7 +163,7 @@
 }
 
 .qtyBox strong {
-  background: #d4a373;
+  background: var(--color1);
   color: white;
 
   padding: 0.3vw 0.8vw;
@@ -176,7 +176,7 @@
 .cartDetail h4 {
   font-size: clamp(1rem, 1.2vw, 1.4rem);
 
-  color: #8b5e3c;
+  color: var(--color1);
 }
 
 .cartFooter {
@@ -201,7 +201,7 @@
 
   font-size: clamp(1.3rem, 2vw, 2rem);
 
-  color: #d4a373;
+  color: var(--color1);
 }
 
 .waButton {
@@ -235,12 +235,12 @@
 }
 
 .keranjangBox::-webkit-scrollbar-thumb {
-  background: #c48a5a;
+  background: var(--color1);
   border-radius: 1vw;
 }
 
 .keranjangBox::-webkit-scrollbar-thumb:hover {
-  background: #a96d3f;
+  background: var(--color1);
 }
 
 .keranjangPage input{

@@ -30,13 +30,23 @@ body::-webkit-scrollbar {
   display: none;
 }
 
+.konten1{
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  width: 100%;
+   min-height: 100vh;
+}
+
 .konten {
   display: flex;
   flex-direction: column;
-  min-height: 100vh;
   padding-top: 5vw;
   align-items: center;
   justify-content: center;
+  width: 100%;
+  margin-bottom: 5vw;
 }
 
 .popup {
@@ -53,6 +63,54 @@ body::-webkit-scrollbar {
   box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
   z-index: 1000;
   margin: 0;
+}
+
+.orderSummaryOverlay {
+  position: fixed;
+  inset: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: rgba(0, 0, 0, 0.45);
+  z-index: 10000;
+  padding: 20px;
+}
+
+.orderSummaryPopup {
+  position: relative;
+  width: min(90vw, 420px);
+  background: white;
+  border-radius: 20px;
+  padding: 30px 24px;
+  box-shadow: 0 12px 35px rgba(0, 0, 0, 0.25);
+  text-align: center;
+}
+
+.orderSummaryPopup h3 {
+  color: var(--color1);
+  margin: 0 0 16px;
+  font-size: 22px;
+}
+
+.orderSummaryPopup p {
+  margin: 10px 0;
+  color: var(--still1);
+  font-size: 1rem;
+}
+
+.orderSummaryPopup .closeCart {
+  position: absolute;
+  top: 12px;
+  right: 12px;
+  width: 38px;
+  height: 38px;
+  min-width: 38px;
+  min-height: 38px;
+  border-radius: 50%;
+  border: none;
+  background: crimson;
+  color: white;
+  cursor: pointer;
 }
 
 .popup h3 {
@@ -103,7 +161,7 @@ pre {
 
 .hr1 {
   margin-top: 4vw;
-  margin-bottom: 10vw;
+  margin-bottom: 4vw;
   background:var(--color1);
   height: 0.1vw;
   width: 100%;
@@ -180,13 +238,34 @@ pre {
   
 }
 
-.headmenu  img{
-  height: 80%;
-  width: auto;
-  background: var(--still2);
-  position: absolute;
+.imgd1{
+  background: white;
+    position: absolute;
   left: 1vw;
+  display: flex;
+  width: auto;
+  height: 80%;
+  padding-right: 1vw;
+  align-items: center;
   border-radius: 0.4vw;
+}
+
+.headmenu  img{
+  width: auto;
+  height: 100%;
+  background: var(--still2);
+  border-radius: 0.4vw;
+}
+
+.headmenu .imgd1 h1{
+  font-size: 1.1rem;
+  color: var(--color1);
+  font-weight: 800;
+  font-style: italic;
+}
+
+.headmenu .imgd1 h1 span{
+  color: var(--still1);
 }
 
 .headmenu .shoppingbag{
@@ -211,14 +290,14 @@ stroke-width: 1.2;
   background: white;
   padding: 1vw;
   gap: 1vw;
-  width: 40%;
+  width: 50%;
   border-radius: 0.4vw;
- 
 }
 
 .headmenu input{
   background: white;
   width: 100%;
+  outline: none;
 }
 
 .h4pesan {

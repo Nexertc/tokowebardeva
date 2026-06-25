@@ -27,12 +27,10 @@
 }
 
 .navbar h1{
-  position: absolute;
-  left: 4vw;
   color: var(--still2);
   font-style: italic;
   font-size: 1.5rem;
-  font-weight: 700;
+  font-weight: 800;
 }
 
 .navbar h1 span{
@@ -283,6 +281,15 @@
 
 .sidebar nav a:hover {
   color: #d4a373;
+}
+
+.imgnav1{
+  position: absolute;
+  left: 1vw;
+  background: var(--still2);
+  height: 85%;
+  width: auto;
+  border-radius: 0.4vw;
 }
 
 

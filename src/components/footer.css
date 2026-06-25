@@ -1,11 +1,11 @@
 /* footer.css */
 
 .footer {
-  background: #2b1d16;
+  background: var(--still1);
   color: white;
   padding-top: 3vw;
   margin-top: 4vw;
-  border-top: 0.3vw solid #d6ad60;
+  border-top: 0.3vw solid var(--color1);
   width: 100%;
 }
 
@@ -20,13 +20,13 @@
 }
 
 .footer-brand h2 {
-  color: #d6ad60;
+  color: var(--color1);
   margin-bottom: 0.8vw;
   font-size: 2rem;
 }
 
 .footer-brand p {
-  color: #ddd;
+  color: var(--still2);
   max-width: 20vw;
   line-height: 1.6;
   font-size: 1rem;
@@ -34,7 +34,7 @@
 
 .footer-menu h3,
 .footer-contact h3 {
-  color: #d6ad60;
+  color: var(--color1);
   margin-bottom: 0.8vw;
   font-size: 1.4rem;
 }
@@ -46,29 +46,29 @@
 
 .footer-menu li {
   margin-bottom: 0.6vw;
-  color: #f1f1f1;
+  color: var(--still2);
   cursor: pointer;
   transition: 0.3s;
   font-size: 1rem;
 }
 
 .footer-menu li:hover {
-  color: #d6ad60;
+  color: var(--color1);
 }
 
 .footer-contact p {
   margin-bottom: 0.6vw;
-  color: #f1f1f1;
+  color: var(--still2);
   font-size: 1rem;
 }
 
 .footer-bottom {
   text-align: center;
   padding: 1vw;
-  background: #1b120d;
-  border-top: 0.1vw solid #d6ad60;
+  background: var(--still1);
+  border-top: 0.1vw solid var(--color1);
   font-size: 0.9rem;
-  color: #ccc;
+  color: var(--still2);
 }
 
 /* Responsive */

@@ -1,5 +1,6 @@
 import { ShoppingCart } from "react-feather";
 import { Menu } from "react-feather";
+import nxc2 from "../img/nxc2.png";
 
 export default function Navbar({
     showPopup,
@@ -27,6 +28,8 @@ export default function Navbar({
               </button>
 
             <h1>Tokoweb<span>Ardeva</span>.</h1>
+
+            <img src={nxc2} alt="" className="imgnav1" />
 
               </nav>
     );
