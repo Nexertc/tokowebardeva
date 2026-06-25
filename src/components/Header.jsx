@@ -51,7 +51,7 @@ export default function Header({ totalQty, showPopup }) {
 
       <article className="sec1">
         <section className="sec3">
-          <h1 className="judul">Website C🍪kies Resi Nopalia</h1>
+          <h1 className="judul">Website Ckies Resi Nopalia</h1>
           <p className="p1v">Website E-Comerce Cookis</p>
           <figure className="SecFig">
            

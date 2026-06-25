@@ -211,6 +211,7 @@ export default function HomePage() {
         formatRupiah={formatRupiah}
       />
 
+
       <hr className="hr1" />
     </div>
   );
