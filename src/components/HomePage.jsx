@@ -6,7 +6,7 @@ import Keranjang from "./Keranjang";
 import Navbar from "./Navbar";
 import Header from "./Header";
 import { ShoppingBag, Search } from "react-feather";
-import Section3 from "./section3";
+import Section3 from "./Section3";
 import { useNavigate } from "react-router-dom";
 import nxc2 from "../img/nxc2.png";
 import { products } from "../data/products";
