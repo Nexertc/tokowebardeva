@@ -10,6 +10,7 @@ export default function Section3() {
           title="smk geo informatika"
         ></iframe>
 
+
         <article>
           <h5>
             <MapPin className="MapPin" />
