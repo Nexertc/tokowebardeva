@@ -1,6 +1,7 @@
 import "../App.css";
 import "./menu1.css";
 import cookies from "../img/cookis.png";
+import { Plus, Minus } from "react-feather";
 
 export default function Menu1({
   menuList,
@@ -37,13 +38,13 @@ export default function Menu1({
         onClick={(e) => e.stopPropagation()}
       >
         <button onClick={() => ubahJumlah(item.set, item.state, -1)}>
-          −
+         <Minus className="btnjumlah" />
         </button>
 
         <input value={item.state.qty} readOnly />
 
         <button onClick={() => ubahJumlah(item.set, item.state, 1)}>
-          ＋
+         <Plus className="btnjumlah" />
         </button>
       </footer>
     </article>

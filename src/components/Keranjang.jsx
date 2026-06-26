@@ -1,7 +1,5 @@
-// src/components/Keranjang.jsx
-
-
 import "./keranjang.css";
+import { ShoppingCart, X } from "react-feather";
 
 export default function Keranjang({
   cartItems,
@@ -22,7 +20,19 @@ export default function Keranjang({
         
         <header className="keranjangHeader">
           <div className="titleCart">
-            <h2>🛒 Keranjang Belanja</h2>
+            <h2><ShoppingCart /> Keranjang Belanja</h2>
+              <input
+                type="text"
+                placeholder="Nama"
+                value={nama}
+                onChange={(e) => setNama(e.target.value)}
+              />
+              <input
+                type="text"
+                placeholder="Nomor Meja"
+                value={meja}
+                onChange={(e) => setMeja(e.target.value)}
+              />
             <p>{cartItems.length} item dipilih</p>
           </div>
 
@@ -73,18 +83,7 @@ export default function Keranjang({
                   {formatRupiah(totalHarga)}
                 </h3>
               </section>
-              <input
-                type="text"
-                placeholder="Nama"
-                value={nama}
-                onChange={(e) => setNama(e.target.value)}
-              />
-              <input
-                type="text"
-                placeholder="Nomor Meja"
-                value={meja}
-                onChange={(e) => setMeja(e.target.value)}
-              />
+
               {statusMessage && <p className="statusMessage">{statusMessage}</p>}
               <button
                 className="waButton"

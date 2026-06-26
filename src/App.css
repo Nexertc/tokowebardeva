@@ -1,4 +1,3 @@
-@import "tailwindcss";
 
 :root {
   --color1: #4e95ff;
@@ -13,7 +12,6 @@
   --fontp: "Poppins", sans-serif;
 }
 
-
 * {
   box-sizing: border-box;
   transition: all 0.3s ease;
@@ -23,20 +21,20 @@ body {
   margin: 0;
   min-height: 100vh;
   overflow-x: hidden;
-  font-family: 'poppins', sans-serif;
+  font-family: "poppins", sans-serif;
 }
 
 body::-webkit-scrollbar {
   display: none;
 }
 
-.konten1{
+.konten1 {
   display: flex;
   align-items: center;
   justify-content: center;
   flex-direction: column;
   width: 100%;
-   min-height: 100vh;
+  min-height: 100vh;
 }
 
 .konten {
@@ -162,62 +160,10 @@ pre {
 .hr1 {
   margin-top: 4vw;
   margin-bottom: 4vw;
-  background:var(--color1);
+  background: var(--color1);
   height: 0.1vw;
   width: 100%;
   border: none;
-}
-
-.artc2 {
-  display: flex;
-  border: 0.2vw solid var(--color1);
-  padding: 2vw;
-  padding-top: 4vw;
-  padding-bottom: 4vw;
-  border-radius: 2vw;
-  align-items: center;
-  justify-content: center;
-  width: 80%;
-  gap: 2vw;
-  position: relative;
-}
-
-.artc2 section {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  width: 55%;
-}
-
-.cookies2 {
-  width: 25%;
-}
-
-.artcH22 {
-  background: var(--color1);
-  padding: 0.7vw;
-  color: white;
-  width: 50%;
-  text-align: center;
-  font-size: 1.5rem;
-  margin: 0;
-  margin-bottom: 1vw;
-  border-radius: 0.5vw;
-}
-
-.artcP2 {
-  width: 75%;
-  text-align: justify;
-  text-indent: 1rem;
-  font-size: clamp(0.85rem, 2vw, 1rem);
-}
-
-.cookies3 {
-  width: 5%;
-  position: absolute;
-  right: 2vw;
-  bottom: 1vw;
 }
 
 .headmenu {
@@ -226,21 +172,20 @@ pre {
   align-items: center;
   justify-content: center;
   background: var(--color1);
-  
+
   border-radius: 0.7vw;
   margin-top: 3vw;
   position: relative;
   height: 8vw;
 }
 
-.headmenu h3{
+.headmenu h3 {
   width: 5%;
-  
 }
 
-.imgd1{
+.imgd1 {
   background: white;
-    position: absolute;
+  position: absolute;
   left: 1vw;
   display: flex;
   width: auto;
@@ -250,42 +195,42 @@ pre {
   border-radius: 0.4vw;
 }
 
-.headmenu  img{
+.headmenu img {
   width: auto;
   height: 100%;
   background: var(--still2);
   border-radius: 0.4vw;
 }
 
-.headmenu .imgd1 h1{
+.headmenu .imgd1 h1 {
   font-size: 1.1rem;
   color: var(--color1);
   font-weight: 800;
   font-style: italic;
 }
 
-.headmenu .imgd1 h1 span{
+.headmenu .imgd1 h1 span {
   color: var(--still1);
 }
 
-.headmenu .shoppingbag{
+.headmenu .shoppingbag {
   color: var(--color4);
-width: 100%;
-height: 100%;
-stroke-width: 1.2;
+  width: 100%;
+  height: 100%;
+  stroke-width: 1.2;
 }
 
-.headmenu  .shoppingbag1{
+.headmenu .shoppingbag1 {
   position: absolute;
   left: 1vw;
 }
 
-.headmenu .shoppingbag2{
+.headmenu .shoppingbag2 {
   position: absolute;
   right: 1vw;
 }
 
-.headmenu .input1{
+.headmenu .input1 {
   display: flex;
   background: white;
   padding: 1vw;
@@ -294,10 +239,11 @@ stroke-width: 1.2;
   border-radius: 0.4vw;
 }
 
-.headmenu input{
+.headmenu input {
   background: white;
   width: 100%;
-  outline: none;
+ border: none;
+ outline: none;
 }
 
 .h4pesan {
@@ -316,19 +262,26 @@ stroke-width: 1.2;
   font-weight: 700;
 }
 
-
 @media (max-width: 900px) {
+  html{
+    font-size: 70%;
+  }
   .headmenu {
-    width: 95%;
     display: flex;
     align-items: center;
-    justify-content: start;
-    background: linear-gradient(90deg, #7b4a18, #b76c03);
-    padding: 4vw;
-    border-radius: 2vw;
-    border: 0.5vw solid #d6ad60;
+    height: 16vw;
     gap: 1vw;
-    flex-wrap: wrap;
+    margin-top: 17vw;
+    margin-bottom: 5vw;
+  }
+
+  .headmenu .shoppingbag{
+    display: none;
+  }
+
+  .headmenu .input1{
+    position: absolute;
+    right: 1vw;
   }
 
   .h4pesan {
