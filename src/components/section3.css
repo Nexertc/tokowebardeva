@@ -4,6 +4,7 @@
   align-items: center;
   width: 100%;
   margin-bottom: 5vw;
+  margin-top: 4vw;
 }
 
 .lokasi {
@@ -21,7 +22,37 @@
   border: 0.1vw solid var(--color1);
   border-radius: 1.2vw;
 }
-.lokasi article {
+
+
+.article1{
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 60%;
+ padding: 2vw;
+  border: 0.1vw solid var(--color1);
+  margin-bottom: 3vw;
+  gap: 2vw;
+}
+
+.article1 section h2{
+color: var(--color1);
+}
+
+.article1 section h2 span{
+  color: var(--still3);
+}
+
+.article1 img{
+width: 50%;
+}
+
+ .paragraft-discount span{
+text-decoration:line-through;
+}
+
+
+.lokasi .article2 {
   display: flex;
   flex-direction: column;
   justify-content: start;
@@ -30,15 +61,24 @@
   border: 0.1vw solid var(--color1);
   border-radius: 1.2vw;
   padding: 3vw;
+  padding-top: 1vw;
+  position: relative;
 }
 
-.lokasi article section{
+.lokasi .article2 section{
   display: flex;
   align-items: center;
   justify-content: center;
 }
 
-.lokasi article h5{
+.lokasi .article2 img{
+  position: absolute;
+  right: 1vw;
+  bottom: 1vw;
+  width: 10%;
+}
+
+.lokasi .article2 h5{
     font-size: 1.4rem;
     color: var(--color1);
     display: flex;
@@ -48,18 +88,17 @@
 }
 
 
-.lokasi article h5 .MapPin{
+.lokasi .article2 h5 .MapPin{
   color: var(--color5);
 }
 
-.lokasi article p{
+.lokasi .article2 p{
     text-align: justify;
     width: 90%;
     font-size: 1.2rem;
 }
 
-
-@media (max-width: 768px){
+@media (min-width: 321px) and (max-width: 768px){
   .lokasi{
     flex-direction: column;
   }

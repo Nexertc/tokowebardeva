@@ -1,0 +1,38 @@
+.banner1{
+    display: flex;
+    width: 95%;
+    margin-top: 8vw ;
+    display: flex;
+    align-items: center;
+   justify-content: center;
+    overflow: auto;
+}
+
+.banner1 img{
+    width: 24.8%;
+    height: 20vw;
+    object-fit: cover;
+      
+}
+
+
+@media (max-width: 768px){
+    .banner1{
+        margin-top: 12vw;
+        flex-wrap: wrap;
+    }
+
+    .banner1 img{
+        width: 50%;
+        height: 40vw;
+        border-radius: 0;
+        border: none;
+    }
+}
+
+
+@media (max-width:450px){
+    .banner1{
+        margin-top: 22vw;
+    }
+}

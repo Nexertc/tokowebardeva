@@ -261,7 +261,44 @@
 
 
 
-@media (max-width: 900px) {
+@media (max-width: 600px) {
+  .keranjangBox {
+    width: 95%;
+    padding: 5vw;
+    max-height: 100%;
+  }
+
+  .titleCart h2{
+    gap: 2vw;
+  }
+
+  .cartItem {
+    flex-direction: column;
+  }
+
+  .cartImage {
+    width: 100%;
+  }
+
+  .cartImage img {
+    width: 100%;
+    height: auto;
+  }
+
+  .cartDetail {
+    width: 100%;
+  }
+  .qtyBox strong {
+    padding: 1vw 2vw 1vw 2vw;
+  }
+}
+
+@media (min-width: 769px) and (max-width: 1100px) {
+
+  html{
+    font-size: 80%;
+  }
+
   .keranjangBox {
     width: 90%;
     border-radius: 4vw;
@@ -304,37 +341,5 @@
   .cartFooter {
     flex-direction: column;
     align-items: stretch;
-  }
-}
-
-@media (max-width: 600px) {
-  .keranjangBox {
-    width: 95%;
-    padding: 5vw;
-    max-height: 100%;
-  }
-
-  .titleCart h2{
-    gap: 2vw;
-  }
-
-  .cartItem {
-    flex-direction: column;
-  }
-
-  .cartImage {
-    width: 100%;
-  }
-
-  .cartImage img {
-    width: 100%;
-    height: auto;
-  }
-
-  .cartDetail {
-    width: 100%;
-  }
-  .qtyBox strong {
-    padding: 1vw 2vw 1vw 2vw;
   }
 }

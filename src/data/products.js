@@ -63,6 +63,8 @@ export const products = [
     harga: 7000,
     img: chocolatosImg,
   },
+
+
 ];
 
 export default products;

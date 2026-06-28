@@ -55,14 +55,14 @@
 
 #cartCount {
   position: absolute;
-  top: 0.5vw;
+  top: 0.2vw;
   background: red;
   right: 0;
   color: white;
   font-size: 0.7rem;
   font-weight: bold;
-  padding: 0.1vw 0.5vw;
-  border-radius: 8vw;
+  padding: 0.1vw 0.5vw 0.1vw 0.5vw;
+  border-radius: 50%;
   box-shadow: 0 2px 6px rgba(0, 0, 0, 0.2);
 }
 
@@ -277,9 +277,10 @@
   display: none;
 }
 
-@media (max-width: 900px) {
+/* HP */
+@media (min-width: 321px) and (max-width: 480px){
   .navbar {
-    height: 17vw;
+    height: 15vw;
   }
 
   .imgnav1 {
@@ -343,19 +344,16 @@
   }
 
   #cartBtn {
-    padding: 2vw;
+    padding: 1vw;
   }
 
   #cartCount {
     position: absolute;
-    min-width: 22px;
-    height: 22px;
-    padding: 0 6px;
+  top: 1vw;
+    padding: 0.5vw 1.3vw 0.5vw 1.3vw;
     background: red;
     color: white;
-    display: flex;
-    align-items: center;
-    justify-content: center;
+  
   }
 
   .menu2 {
@@ -378,5 +376,26 @@
   .menu2 .iconmenu {
     width: 100%;
     height: 100%;
+  }
+}
+
+/* HP besar */
+@media (min-width: 481px) and (max-width: 767px){
+ 
+  .navbar{
+    height: 10vw;
+  }
+#cartBtn{
+  padding: 1.5vw;
+}
+  #cartCount{
+ padding: 0.5vw 1vw 0.5vw 1vw;
+  }
+
+
+}
+@media (min-width: 768px) and (max-width: 1100px) {
+  .navbar{
+    height: 7vw;
   }
 }
